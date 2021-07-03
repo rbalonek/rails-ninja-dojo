@@ -1,6 +1,12 @@
 import React from "react";
-
+import { useHistory } from "react-router-dom";
 export default function Home(props) {
+  let history = useHistory();
+
+  const goToJoin = () => {
+    history.push("/join");
+  };
+
   return (
     <div style={{ textAlign: "center" }}>
       {props.dojos.map((dojo) => (
@@ -17,9 +23,16 @@ export default function Home(props) {
               />
               <h2>STUDENTS</h2>
               {props.studentArray.map((student) => (
-                <>{student.sensei_id === sensei.id && <p>{student.name}</p>}</>
+                <>
+                  {student.sensei_id === sensei.id && (
+                    <>
+                      <h4>NAME: {student.name}</h4>
+                      <p>Special Attack: {student.special_attack}</p>
+                    </>
+                  )}
+                </>
               ))}
-              <button>JOIN</button>
+              <button onClick={goToJoin}>JOIN</button>
               <hr />
             </>
           ))}

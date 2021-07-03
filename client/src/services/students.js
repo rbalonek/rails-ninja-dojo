@@ -21,7 +21,9 @@ export const putStudent = async (id, formData) => {
 };
 
 export const postStudent = async (formData) => {
-  const resp = await api.post("/students", { student: formData });
+  const resp = await api.post("/dojos/2/senseis/3/students/", {
+    student: formData,
+  });
   return resp.data;
 };
 
