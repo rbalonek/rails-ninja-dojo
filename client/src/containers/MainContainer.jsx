@@ -6,11 +6,17 @@ import AddStudent from "../screens/AddStudent";
 
 import { getAllDojos } from "../services/dojos";
 
-import { getAllStudentsWithSensei, postStudent } from "../services/students";
+import {
+  getAllStudentsWithSensei,
+  postStudent,
+  deleteStudent,
+} from "../services/students";
 
 export default function MainContainer() {
   const [dojos, setDojos] = useState([]);
   const [students, setStudents] = useState([]);
+
+  let history = useHistory();
 
   useEffect(() => {
     const fetchDojos = async () => {
@@ -53,6 +59,14 @@ export default function MainContainer() {
     // window.location.reload();
   };
 
+  const handleDelete = async (id) => {
+    await deleteStudent(id);
+    setStudents((prevState) =>
+      prevState.filter((student) => student.id !== id)
+    );
+    window.location.reload();
+  };
+
   // console.log(students);
 
   return (
@@ -62,7 +76,11 @@ export default function MainContainer() {
       </Route>
 
       <Route path="/">
-        <Home studentArray={students.flat()} dojos={dojos} />
+        <Home
+          handleDelete={handleDelete}
+          studentArray={students.flat()}
+          dojos={dojos}
+        />
       </Route>
     </Switch>
   );

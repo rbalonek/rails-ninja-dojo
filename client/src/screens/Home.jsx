@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 export default function Home(props) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const logIn = () => {
+    setIsLoggedIn(true);
+  };
+
+  const logOut = () => {
+    setIsLoggedIn(false);
+  };
+
   let history = useHistory();
 
   const goToJoin = () => {
@@ -9,6 +19,8 @@ export default function Home(props) {
 
   return (
     <div style={{ textAlign: "center" }}>
+      <button onClick={logIn}>Fake Login</button>
+      {isLoggedIn === true && <button onClick={logOut}>LogOut</button>}
       {props.dojos.map((dojo) => (
         <>
           <h1 style={{ color: "red" }}>{dojo.name}</h1>
@@ -28,6 +40,11 @@ export default function Home(props) {
                     <>
                       <h4>NAME: {student.name}</h4>
                       <p>Special Attack: {student.special_attack}</p>
+                      {isLoggedIn === true && (
+                        <button onClick={() => props.handleDelete(student.id)}>
+                          Delete Student
+                        </button>
+                      )}
                     </>
                   )}
                 </>
