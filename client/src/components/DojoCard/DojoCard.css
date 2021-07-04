@@ -1,0 +1,14 @@
+.dojo-card__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 200px;
+  padding: 50px;
+  background-color: blue;
+  position: relative;
+  top: 30vh;
+}
+.dojo-card__container:hover {
+  cursor: pointer;
+}

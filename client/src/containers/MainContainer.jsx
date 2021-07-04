@@ -11,6 +11,7 @@ import {
   postStudent,
   deleteStudent,
 } from "../services/students";
+import Landing from "../screens/Landing/Landing";
 
 export default function MainContainer() {
   const [dojos, setDojos] = useState([]);
@@ -73,6 +74,15 @@ export default function MainContainer() {
     <Switch>
       <Route path="/join">
         <AddStudent dojos={dojos} createSubmit={createSubmit} />
+      </Route>
+
+      <Route path="/landing">
+        <Landing
+          dojos={dojos}
+          createSubmit={createSubmit}
+          handleDelete={handleDelete}
+          studentArray={students.flat()}
+        />
       </Route>
 
       <Route path="/">

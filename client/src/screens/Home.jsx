@@ -17,8 +17,13 @@ export default function Home(props) {
     history.push("/join");
   };
 
+  const goTOLanding = () => {
+    history.push("/landing");
+  };
+
   return (
     <div style={{ textAlign: "center" }}>
+      <button onClick={goTOLanding}>LANDING</button>
       <button onClick={logIn}>Fake Login</button>
       {isLoggedIn === true && <button onClick={logOut}>LogOut</button>}
       {props.dojos.map((dojo) => (

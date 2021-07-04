@@ -1,0 +1,13 @@
+.landing__container {
+  min-height: 100vh;
+  background-color: black;
+}
+.landing__title {
+  color: white;
+  text-align: center;
+}
+.landing__dojo-card-holder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
