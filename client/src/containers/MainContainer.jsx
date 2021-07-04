@@ -5,12 +5,13 @@ import Home from "../screens/Home";
 import AddStudent from "../screens/AddStudent";
 import Dojo from "../screens/Dojo/Dojo";
 import Sensei from "../screens/Sensei/Sensei";
+import UpdateStudent from "../screens/UpdateStudent/UpdateStudent";
 
 import { getAllDojos } from "../services/dojos";
 
 import {
   getAllStudents,
-  getAllStudentsWithSensei,
+  putStudent,
   postStudent,
   deleteStudent,
 } from "../services/students";
@@ -24,7 +25,7 @@ export default function MainContainer() {
   const [students, setStudents] = useState([]);
   const [senseis, setSenseis] = useState([]);
 
-  // let history = useHistory();
+  let history = useHistory();
 
   useEffect(() => {
     const fetchDojos = async () => {
@@ -62,14 +63,32 @@ export default function MainContainer() {
     window.location.reload();
   };
 
-  console.log("students", students);
-  console.log("senseis", senseis);
+  const updateSubmit = async (id, formData) => {
+    const updatedStudent = await putStudent(id, formData);
+    setStudents((prevState) =>
+      prevState.map((student) =>
+        student.id === Number(id) ? updatedStudent : student
+      )
+    );
+    history.push("/");
+  };
+
+  // console.log("students", students);
+  // console.log("senseis", senseis);
 
   return (
     <Switch>
       '
       <Route path="/join">
         <AddStudent dojos={dojos} createSubmit={createSubmit} />
+      </Route>
+      <Route path="/update/:id">
+        <UpdateStudent
+          students={students}
+          updateSubmit={updateSubmit}
+          dojos={dojos}
+          createSubmit={createSubmit}
+        />
       </Route>
       <Route path="/landing">
         <Landing
@@ -98,6 +117,7 @@ export default function MainContainer() {
       </Route>
       <Route path="/">
         <Home
+          updateSubmit={updateSubmit}
           handleDelete={handleDelete}
           studentArray={students}
           dojos={dojos}

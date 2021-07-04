@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+
 export default function Home(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   let history = useHistory();
@@ -54,12 +55,22 @@ export default function Home(props) {
                       <h4>NAME: {student.name}</h4>
                       <p>Special Attack: {student.special_attack}</p>
                       {isLoggedIn === true && (
-                        <button
-                          className="btn warning"
-                          onClick={() => props.handleDelete(student.id)}
-                        >
-                          Delete
-                        </button>
+                        <>
+                          <button
+                            className="btn warning"
+                            onClick={() => props.handleDelete(student.id)}
+                          >
+                            Delete
+                          </button>
+                          <Link to={`/update/${student.id}`}>
+                            <button
+                              style={{ marginLeft: "20px" }}
+                              className="btn secondary"
+                            >
+                              Edit
+                            </button>
+                          </Link>
+                        </>
                       )}
                     </>
                   )}
