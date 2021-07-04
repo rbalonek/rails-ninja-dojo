@@ -78,7 +78,6 @@ export default function MainContainer() {
 
   return (
     <Switch>
-      '
       <Route path="/join">
         <AddStudent dojos={dojos} createSubmit={createSubmit} />
       </Route>

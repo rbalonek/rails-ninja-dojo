@@ -23,27 +23,35 @@ export default function Landing(props) {
 
   return (
     <div className="landing__container">
-      <button className="btn primary" onClick={logIn}>
-        Fake Login
-      </button>
-      {isLoggedIn === true && (
+      {props.dojos.length ? (
         <>
-          <button className="btn warning" onClick={logOut}>
-            Log Out
+          <button className="btn primary" onClick={logIn}>
+            Fake Login
           </button>
-          <button className="btn secondary" onClick={goToLanding}>
-            Backend
-          </button>
+          {isLoggedIn === true && (
+            <>
+              <button className="btn warning" onClick={logOut}>
+                Log Out
+              </button>
+              <button className="btn secondary" onClick={goToLanding}>
+                Backend
+              </button>
+            </>
+          )}
+
+          <h1 className="landing__title">The Dojos</h1>
+
+          <div className="landing__dojo-card-holder">
+            {props.dojos.map((dojo) => (
+              <DojoCard dojo={dojo} />
+            ))}
+          </div>
+        </>
+      ) : (
+        <>
+          <h1 style={{ color: "white" }}>Waking Up Database...</h1>
         </>
       )}
-
-      <h1 className="landing__title">The Dojos</h1>
-
-      <div className="landing__dojo-card-holder">
-        {props.dojos.map((dojo) => (
-          <DojoCard dojo={dojo} />
-        ))}
-      </div>
     </div>
   );
 }
