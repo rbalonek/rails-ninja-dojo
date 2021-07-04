@@ -1,0 +1,21 @@
+.add-student__container {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+}
+.add-student__form {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.add-student__sensei-dropdown {
+  /* width: 100px; */
+  align-self: center;
+  margin-bottom: 50px;
+  position: relative;
+  bottom: 20px;
+}

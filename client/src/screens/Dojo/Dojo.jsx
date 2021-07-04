@@ -18,6 +18,11 @@ export default function Dojo(props) {
 
   return (
     <div className="dojo__container">
+      <div style={{ position: "absolute", top: "10px", left: "10px" }}>
+        <button className="btn primary" onClick={backToLanding}>
+          BACK
+        </button>
+      </div>
       <h1 className="dojo__title">{props.dojos[minusOne].name}</h1>
       <hr />
       <div className="dojo__teacher-card-holder">
@@ -25,7 +30,6 @@ export default function Dojo(props) {
           <TeacherCard sensei={sensei} />
         ))}
       </div>
-      <button onClick={backToLanding}>BACK</button>
     </div>
   );
 }

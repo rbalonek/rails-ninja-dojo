@@ -21,8 +21,11 @@ export default function TeacherCard(props) {
       />
       <p>{props.sensei.wise_quote}</p>
       <div className="teacher-card__button-container">
-        <button onClick={goToJoin}>Join</button>
+        <button className="btn secondary" onClick={goToJoin}>
+          Join
+        </button>
         <button
+          className="btn primary"
           onClick={() =>
             // console.log(props.sensei)
             history.push(

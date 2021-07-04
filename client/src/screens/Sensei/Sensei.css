@@ -1,0 +1,12 @@
+.sensei__text-holder {
+  text-align: center;
+}
+.sensei__img {
+  height: 250px;
+}
+.sensei__student-info {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 100px;
+  padding-right: 100px;
+}

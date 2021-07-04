@@ -1,5 +1,5 @@
 .teacher-card__container {
-  background-color: red;
+  background-color: black;
   width: 400px;
   padding: 20px;
   height: 400px;
@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: white;
 }
 
 .teacher-card__button-container {
