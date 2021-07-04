@@ -22,9 +22,17 @@ export default function Home(props) {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <button onClick={goTOLanding}>LANDING</button>
-      <button onClick={logIn}>Fake Login</button>
-      {isLoggedIn === true && <button onClick={logOut}>LogOut</button>}
+      <button className="btn primary" onClick={goTOLanding}>
+        BACK
+      </button>
+      <button className="btn secondary" onClick={logIn}>
+        Edit
+      </button>
+      {isLoggedIn === true && (
+        <button className="btn secondary" onClick={logOut}>
+          End Edits
+        </button>
+      )}
 
       {props.dojos.map((dojo) => (
         <>
@@ -46,15 +54,18 @@ export default function Home(props) {
                       <h4>NAME: {student.name}</h4>
                       <p>Special Attack: {student.special_attack}</p>
                       {isLoggedIn === true && (
-                        <button onClick={() => props.handleDelete(student.id)}>
-                          Delete Student
+                        <button
+                          className="btn warning"
+                          onClick={() => props.handleDelete(student.id)}
+                        >
+                          Delete
                         </button>
                       )}
                     </>
                   )}
                 </>
               ))}
-              <button onClick={goToJoin}>JOIN</button>
+
               <hr />
             </>
           ))}

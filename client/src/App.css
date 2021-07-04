@@ -20,10 +20,16 @@
   cursor: pointer;
 }
 .secondary {
-  background-color: #f9aa33;
+  background-color: #db5f12;
   color: white;
   font-size: large;
 }
 .secondary:hover {
   cursor: pointer;
+}
+
+.warning {
+  background-color: red;
+  color: white;
+  font-size: large;
 }
