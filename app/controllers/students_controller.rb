@@ -7,6 +7,11 @@ class StudentsController < ApplicationController
   #   render json: @students
   # end
 
+  def all_students
+    @students = Student.all
+    render json: @students
+  end
+
   def index
     @dojo = Dojo.find(params[:dojo_id])
     @sensei = Sensei.find(params[:sensei_id])

@@ -11,8 +11,9 @@ export default function AddStudent(props) {
     sensei_id: "",
   });
 
-  const goHome = () => {
-    history.push("/");
+  const goBack = () => {
+    // history.push("/");
+    history.goBack();
   };
 
   const { name, age, special_attack, sensei_id } = formData;
@@ -71,7 +72,7 @@ export default function AddStudent(props) {
         ))}
       </select>
       <button>Submit</button>
-      <button onClick={goHome}>HOME</button>
+      <button onClick={goBack}>BACK</button>
     </form>
   );
 }

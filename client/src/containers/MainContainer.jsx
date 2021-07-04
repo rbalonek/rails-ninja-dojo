@@ -3,53 +3,47 @@ import { Switch, Route, useHistory } from "react-router-dom";
 
 import Home from "../screens/Home";
 import AddStudent from "../screens/AddStudent";
+import Dojo from "../screens/Dojo/Dojo";
+import Sensei from "../screens/Sensei/Sensei";
 
 import { getAllDojos } from "../services/dojos";
 
 import {
+  getAllStudents,
   getAllStudentsWithSensei,
   postStudent,
   deleteStudent,
 } from "../services/students";
+
+import { getAllSenseis } from "../services/senseis";
+
 import Landing from "../screens/Landing/Landing";
 
 export default function MainContainer() {
   const [dojos, setDojos] = useState([]);
   const [students, setStudents] = useState([]);
+  const [senseis, setSenseis] = useState([]);
 
-  let history = useHistory();
+  // let history = useHistory();
 
   useEffect(() => {
     const fetchDojos = async () => {
       const dojoArray = await getAllDojos();
       setDojos(dojoArray);
     };
-    const fetchStudentsDojoOneSenseiOne = async (dojo_id, sensei_id) => {
-      const studentArray = await getAllStudentsWithSensei(dojo_id, sensei_id);
-
-      setStudents((prevState) => [...prevState, studentArray]);
+    const fetchSenseis = async () => {
+      const Array = await getAllSenseis();
+      setSenseis(Array);
     };
-    const fetchStudentsDojoOneSenseiTwo = async (dojo_id, sensei_id) => {
-      const studentArray = await getAllStudentsWithSensei(dojo_id, sensei_id);
 
-      setStudents((prevState) => [...prevState, studentArray]);
-    };
-    const fetchStudentsDojoOneSenseiThree = async (dojo_id, sensei_id) => {
-      const studentArray = await getAllStudentsWithSensei(dojo_id, sensei_id);
-
-      setStudents((prevState) => [...prevState, studentArray]);
-    };
-    const fetchStudentsDojoOneSenseiFour = async (dojo_id, sensei_id) => {
-      const studentArray = await getAllStudentsWithSensei(dojo_id, sensei_id);
-
-      setStudents((prevState) => [...prevState, studentArray]);
+    const fetchAllStudents = async () => {
+      const studentArr = await getAllStudents();
+      setStudents(studentArr);
     };
 
     fetchDojos();
-    fetchStudentsDojoOneSenseiOne(1, 1);
-    fetchStudentsDojoOneSenseiTwo(1, 2);
-    fetchStudentsDojoOneSenseiThree(2, 3);
-    fetchStudentsDojoOneSenseiFour(2, 4);
+    fetchAllStudents();
+    fetchSenseis();
   }, []);
 
   const createSubmit = async (formData) => {
@@ -68,27 +62,44 @@ export default function MainContainer() {
     window.location.reload();
   };
 
-  // console.log(students);
+  console.log("students", students);
+  console.log("senseis", senseis);
 
   return (
     <Switch>
+      '
       <Route path="/join">
         <AddStudent dojos={dojos} createSubmit={createSubmit} />
       </Route>
-
       <Route path="/landing">
         <Landing
           dojos={dojos}
           createSubmit={createSubmit}
           handleDelete={handleDelete}
-          studentArray={students.flat()}
+          studentArray={students}
         />
       </Route>
-
+      <Route path="/dojos/:id/senseis/:id/students">
+        <Sensei
+          dojos={dojos}
+          createSubmit={createSubmit}
+          handleDelete={handleDelete}
+          studentArray={students}
+          senseis={senseis}
+        />
+      </Route>
+      <Route path="/dojos/:id">
+        <Dojo
+          dojos={dojos}
+          createSubmit={createSubmit}
+          handleDelete={handleDelete}
+          studentArray={students}
+        />
+      </Route>
       <Route path="/">
         <Home
           handleDelete={handleDelete}
-          studentArray={students.flat()}
+          studentArray={students}
           dojos={dojos}
         />
       </Route>

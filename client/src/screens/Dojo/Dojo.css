@@ -1,0 +1,8 @@
+.dojo__title {
+  text-align: center;
+}
+.dojo__teacher-card-holder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

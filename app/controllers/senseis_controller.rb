@@ -2,11 +2,13 @@ class SenseisController < ApplicationController
   before_action :set_sensei, only: [:show, :update, :destroy]
 
   # GET /senseis
-  # def index
-  #   @senseis = Sensei.all
+  def all_senseis
+    @senseis = Sensei.all
 
-  #   render json: @senseis
-  # end
+    render json: @senseis
+  end
+  
+
   def index
     @dojo = Dojo.find(params[:dojo_id])
     @senseis = Sensei.where(dojo_id: @dojo.id)

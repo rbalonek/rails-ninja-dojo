@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 export default function Home(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  let history = useHistory();
 
   const logIn = () => {
     setIsLoggedIn(true);
@@ -10,8 +11,6 @@ export default function Home(props) {
   const logOut = () => {
     setIsLoggedIn(false);
   };
-
-  let history = useHistory();
 
   const goToJoin = () => {
     history.push("/join");
@@ -26,6 +25,7 @@ export default function Home(props) {
       <button onClick={goTOLanding}>LANDING</button>
       <button onClick={logIn}>Fake Login</button>
       {isLoggedIn === true && <button onClick={logOut}>LogOut</button>}
+
       {props.dojos.map((dojo) => (
         <>
           <h1 style={{ color: "red" }}>{dojo.name}</h1>

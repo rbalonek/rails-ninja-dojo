@@ -5,10 +5,10 @@ import { useHistory } from "react-router-dom";
 export default function DojoCard(props) {
   let history = useHistory();
 
-  const goToDojo = (id) => {
-    history.push("/dojos/" + id);
-    // console.log(id);
-  };
+  // const goToDojo = (id) => {
+  //   history.push("/dojos/" + id);
+  //   // console.log(id);
+  // };
 
   return (
     <div
