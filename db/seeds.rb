@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Student.destroy_all
-# Sensei.destroy_all
-# Dojo.destroy_all
+Student.destroy_all
+Sensei.destroy_all
+Dojo.destroy_all
 
 Dojo.create(name: 'Cobra Kai', motto: 'Strike first. Strike hard. No mercy.')
 Sensei.create(name: 'John Kreese', image_url: 'https://i.pinimg.com/originals/98/60/73/9860734188ab14fcbb16e72f5dd2ad86.jpg', wise_quote: 'We do not train to be merciful here. Mercy is for the weak. Here, in the streets, in competition: A man confronts you, he is the enemy.', dojo_id: 1)
