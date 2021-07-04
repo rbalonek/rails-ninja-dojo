@@ -25,7 +25,7 @@ export default function UpdateStudent(props) {
     });
   };
 
-  console.log(Number(id));
+  // console.log(Number(id));
 
   useEffect(() => {
     const prefilForm = () => {

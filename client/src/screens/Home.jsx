@@ -23,10 +23,18 @@ export default function Home(props) {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <button className="btn primary" onClick={goTOLanding}>
+      <button
+        style={{ marginRight: "20px" }}
+        className="btn primary"
+        onClick={goTOLanding}
+      >
         BACK
       </button>
-      <button className="btn secondary" onClick={logIn}>
+      <button
+        style={{ marginTop: "10px" }}
+        className="btn secondary"
+        onClick={logIn}
+      >
         Edit
       </button>
       {isLoggedIn === true && (
