@@ -13,12 +13,12 @@ export default function Home(props) {
     setIsLoggedIn(false);
   };
 
-  const goToJoin = () => {
-    history.push("/join");
-  };
+  // const goToJoin = () => {
+  //   history.push("/join");
+  // };
 
   const goTOLanding = () => {
-    history.push("/landing");
+    history.push("/");
   };
 
   return (

@@ -1,10 +1,8 @@
 import React from "react";
 import "./TeacherCard.css";
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function TeacherCard(props) {
-  // console.log(props.sensei);
-  const { id } = useParams();
   let history = useHistory();
 
   const goToJoin = () => {

@@ -18,7 +18,7 @@ export default function Landing(props) {
   };
 
   const goToLanding = () => {
-    history.push("/");
+    history.push("/backend");
   };
 
   return (

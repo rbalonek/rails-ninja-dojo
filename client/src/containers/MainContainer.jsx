@@ -70,7 +70,7 @@ export default function MainContainer() {
         student.id === Number(id) ? updatedStudent : student
       )
     );
-    history.push("/");
+    history.push("/backend");
   };
 
   // console.log("students", students);
@@ -90,14 +90,6 @@ export default function MainContainer() {
           createSubmit={createSubmit}
         />
       </Route>
-      <Route path="/landing">
-        <Landing
-          dojos={dojos}
-          createSubmit={createSubmit}
-          handleDelete={handleDelete}
-          studentArray={students}
-        />
-      </Route>
       <Route path="/dojos/:id/senseis/:id/students">
         <Sensei
           dojos={dojos}
@@ -115,12 +107,20 @@ export default function MainContainer() {
           studentArray={students}
         />
       </Route>
-      <Route path="/">
+      <Route path="/backend">
         <Home
           updateSubmit={updateSubmit}
           handleDelete={handleDelete}
           studentArray={students}
           dojos={dojos}
+        />
+      </Route>
+      <Route path="/">
+        <Landing
+          dojos={dojos}
+          createSubmit={createSubmit}
+          handleDelete={handleDelete}
+          studentArray={students}
         />
       </Route>
     </Switch>
