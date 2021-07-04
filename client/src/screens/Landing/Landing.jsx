@@ -49,7 +49,21 @@ export default function Landing(props) {
         </>
       ) : (
         <>
-          <h1 style={{ color: "white" }}>Waking Up Database...</h1>
+          <div
+            style={{
+              backgroundColor: "black",
+              marginTop: "-30px",
+              height: "105vh",
+              textAlign: "center",
+            }}
+          >
+            <h1 style={{ color: "white", paddingTop: "100px" }}>
+              Waking Up Database...
+            </h1>
+            <p style={{ color: "white", paddingTop: "100px" }}>
+              This usually takes 10-30 seconds
+            </p>
+          </div>
         </>
       )}
     </div>
