@@ -6,5 +6,5 @@ const baseUrl = "https://rails-ninja-db.fly.dev/"
 const api = axios.create({
   baseURL: baseUrl,
 });
-
+ 
 export default api;
